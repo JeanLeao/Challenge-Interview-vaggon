@@ -1,5 +1,5 @@
 
-import { User } from '../../Models/User.js';
+import { User } from '../Models/User.js';
 import bcrypt from 'bcrypt';
 
 export var registerUser = async (req, res) => {
@@ -35,4 +35,5 @@ export var loginUser = (req, res) => {
         }
     });
 }
+
 

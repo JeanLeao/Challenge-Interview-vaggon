@@ -20,7 +20,7 @@ export const User = connection.define('user',{
         allowNull: false
     },
 
-})
+});
     //User.sync({ force: true }).then(() => {
     //console.log('Tabela criada com sucesso.');
     // });
