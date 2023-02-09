@@ -9,7 +9,7 @@ export var registerUser = async (req, res) => {
             User.create({
                 username: req.body.username,
                 password: bcrypt.hashSync(req.body.password, 10),
-                slug: req.body.slug
+                slug: req.body.username
             }).then((data) => {
                 console.log(data);
             })
