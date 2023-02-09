@@ -17,11 +17,11 @@ export const Activity = connection.define('activity',{
         allowNull: false
     },
     datestarter: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
         allowNull: false
     },
     datefinish: {
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
         allowNull: false
     },
     status: {

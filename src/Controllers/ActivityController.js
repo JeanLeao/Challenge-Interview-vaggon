@@ -1,15 +1,23 @@
+import dateFactory  from '../Factory/FactoryCalendar.js';
 import { Activity } from '../Models/Activity.js';
 import { User } from '../Models/User.js';
 
 
 
 export var registrerActivities = async (req, res) => {
-    const { name, description, datestarter, datefinish, status } = req.body;
-    Activity.create({
+    const { name, description, datestarter, datefinish, status, hourstart, hourfinish } = req.body;
+    const factory = {
+        startdate: datestarter,
+        starthour: hourstart,
+        enddate: datefinish,
+        endhour: hourfinish
+    }
+    var newformat = dateFactory.Build(factory);
+   Activity.create({
         name: name,
         description: description,
-        datestarter: datestarter,
-        datefinish: datefinish,
+        datestarter: newformat.datestarter,
+        datefinish: newformat.datefinish,
         status: status
     }).then((data) => {
         console.log(data);

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { registrerActivities } from "./Controllers/ActivityController.js";
+import { deleteActivies, getActivities, registrerActivities, updateActivies, updateStatusActivies } from "./Controllers/ActivityController.js";
 import { loginUser, registerUser } from "./Controllers/UserController.js";
 
 const router = Router();
