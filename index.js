@@ -1,9 +1,11 @@
 import express from 'express';
 import { connection } from './src/database/connection.js';
 import router from './src/router.js';
-
+import cors from 'cors'
 const app = express();
  
+app.use(cors())
+
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
@@ -17,6 +19,6 @@ connection.authenticate().then(() =>{
 })
 
 
-app.listen(3000, () => {
+app.listen(3500, () => {
     console.log('Online')
 })

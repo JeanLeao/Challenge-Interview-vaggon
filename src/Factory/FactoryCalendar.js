@@ -2,7 +2,7 @@ class dateFactory{ // CRIANDO A FABRICA DE TRATAMENTO DE DADOS
 
     Build(simpleconsultas){
         const startdateObj = new Date(simpleconsultas.startdate);
-        var day = startdateObj.getDate()+1;
+        var day = startdateObj.getDate();
         var month = startdateObj.getMonth();
         var year = startdateObj.getFullYear();
 
@@ -11,7 +11,7 @@ class dateFactory{ // CRIANDO A FABRICA DE TRATAMENTO DE DADOS
 
         const enddateObj = new Date(simpleconsultas.enddate);
 
-        var finalday = enddateObj.getDate()+1;
+        var finalday = enddateObj.getDate();
         var finalmonth = enddateObj.getMonth();
         var finalyear = enddateObj.getFullYear();
         
@@ -21,8 +21,8 @@ class dateFactory{ // CRIANDO A FABRICA DE TRATAMENTO DE DADOS
 
         var startdate = new Date(year,month,day,hour,minute,0,0);
         var finaldate = new Date(finalyear,finalmonth,finalday,finalhour,finalminute,0,0)
-       startdate.setHours( startdate.getHours() - 3);
-       finaldate.setHours( finaldate.getHours() - 3);
+       startdate.setHours( startdate.getHours());
+       finaldate.setHours( finaldate.getHours()-3);
        console.log('dentro')
         
         var consulta = { // PASSANDO UMA VARIAVEL CONTENDO OS DADOS "TRATADOS"

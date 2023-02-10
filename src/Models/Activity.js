@@ -8,6 +8,10 @@ export const Activity = connection.define('activity',{
         primaryKey: true,
         autoIncrement: true,
     },
+    id_user: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
     name:{
         type: Sequelize.STRING,
         allowNull: false
@@ -36,8 +40,4 @@ export const Activity = connection.define('activity',{
     Activity.sync({ force: true }).then(() => {
         console.log('Tabela criada com sucesso.');
         });
-
-        
-    User.hasMany(Activity);
-    Activity.belongsTo(User);
 

@@ -3,7 +3,7 @@ import { User } from '../Models/User.js';
 import bcrypt from 'bcrypt';
 
 export var registerUser = async (req, res) => {
-    const { username, password, slug } = req.body;
+    const { username, password } = req.body;
     User.findOne({ where: { username: username } }).then((user) => {
         if (!user) {
             User.create({
