@@ -51,7 +51,8 @@ export var deleteActivies = async (req, res) => {
                 return res.status(200).json({ message: 'Atividade deletada' });
             })
         } else {
-            return res.status(401).json({ message: 'Atividade não encontrada' });
+
+            return res.status(401).json({ message: 'Atividade não encontrada'});
         }
     })
 }
@@ -86,24 +87,16 @@ export var getUniqueActivities = async (req, res) => {
 }
 
 export var updateStatusActivies = async (req, res) => {
-    Activity.findOne({ where: { id: req.params.id } }).then((data) => {
+    const { newstatus } = req.body;
+    Activity.findOne({ where: { id: req.params.idl } }).then((data) => {
         if (data) {
-            if(data.status === 'open'){
                 Activity.update({
-                    status: 'pendency'
-                }, { where: { id: req.params.id } }).then((data) => {
-                    console.log(data);
+                    status: newstatus
+                }, { where: { id: req.params.idl } }).then((data) => {
                     return res.status(200).json({ message: 'Atividade atualizada' });
                 })
-            }else{
-                Activity.update({
-                    status: 'open'
-                }, { where: { id: req.params.id } }).then((data) => {
-                    console.log(data);
-                    return res.status(200).json({ message: 'Atividade atualizada' });
-                })
-            }
         } else {
+            console.log(req.params.idl)
             return res.status(401).json({ message: 'Atividade não encontrada' });
         }
     })
