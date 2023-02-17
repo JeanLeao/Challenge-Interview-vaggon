@@ -33,11 +33,11 @@ export const Activity = connection.define('activity',{
         allowNull: false
     },
 })
-    User.sync({ force: true }).then(() => {
-    console.log('Tabela criada com sucesso.');
-    });
+    // User.sync({ force: true }).then(() => {
+    // console.log('Tabela criada com sucesso.');
+    // });
 
-    Activity.sync({ force: true }).then(() => {
-        console.log('Tabela criada com sucesso.');
-        });
+    // Activity.sync({ force: true }).then(() => {
+    //     console.log('Tabela criada com sucesso.');
+    //     });
 
