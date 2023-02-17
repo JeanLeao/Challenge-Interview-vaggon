@@ -76,7 +76,8 @@ export var updateActivies = async (req, res) => {
 export var getUniqueActivities = async (req, res) => {
     User.findOne({ where: { slug: req.params.slug } }).then((user) => {
         if (user) {
-            Activity.findAll({ where: { id_user: user.id, name: req.params.title } }).then((data) => {
+            Activity.findOne({ where: { id: req.params.title } }).then((data) => {
+                console.log(req.params.title);
                 console.log(data);
                 return res.status(200).json(data);    
             })
